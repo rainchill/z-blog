@@ -16,7 +16,7 @@ import axios from "axios";
 
 const props = {
 	name: 'file',
-	action: 'http://127.0.0.1:8000/files',
+	action: 'http://127.0.0.1:8000/api/admin/uploadfile',
 	onChange(info) {
 		if (info.file.status !== 'uploading') {
 		console.log("uploading", info.file, info.fileList);
