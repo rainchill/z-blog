@@ -31,7 +31,7 @@ const baseURL = "http://127.0.0.1:8000/articles";
 async function getArticle() {
     return new Promise((resolve) => {
         axios.get(baseURL).then((res) => {
-            resolve(res.data.list)
+            resolve(res.data)
         })
   });
 }
@@ -70,10 +70,10 @@ const ArticleCard = (props) => {
         <>
             <Divider dashed />
                 <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-                    {data.map(({ id, title, content }) => {
+                    {data.map(({ id, title, discribe }) => {
                         return (
                             <>
-                                <Cardz id={id}  title={title} content={content} bordered={true} loading={loading} navigate={navigate} />
+                                <Cardz id={id}  title={title} content={discribe} bordered={true} loading={loading} navigate={navigate} />
                             </>
                         )
                     })}
@@ -88,7 +88,7 @@ export default ArticleCard
 function seeArticle(navigate, id) {
     axios.get(baseURL+'/'+id).then((res) => {
         navigate('/articles/' + id)
-        console.log('page data', res.data)
+        // console.log('page data', res.data)
     })
 }
 
