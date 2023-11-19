@@ -33,11 +33,11 @@ const columns = [
 // 		address: `London, Park Lane no. ${i}`,
 // 	});
 // }
-const baseURL = "http://127.0.0.1:8000/api/admin/articleslist";
+const baseURL = "http://127.0.0.1:8000/api/admin/";
 
 async function getAdminArticleslist() {
     return new Promise((resolve) => {
-        axios.get(baseURL).then((res) => {
+        axios.get(baseURL+'articleslist').then((res) => {
 			// console.log("--------res.data",res.data)
 			const data = []
 			for (let i = 0; i < res.data.length; i++) {
@@ -56,16 +56,31 @@ async function getAdminArticleslist() {
 
 
 const ArticlesListView = () => {
+	const [flag, setFlag] = useState(false);
 	const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 	const [loading3, setLoading] = useState(false);
-	const { data, error, loading } = useRequest(() => getAdminArticleslist());
+	const { data, error, loading } = useRequest(() => getAdminArticleslist(), {
+		refreshDeps: [flag]
+	});
 	const start = () => {
 		setLoading(true);
 		// ajax request after empty completing
-		setTimeout(() => {
-		setSelectedRowKeys([]);
-		setLoading(false);
-		}, 1000);
+		var arr = selectedRowKeys.map(index => {
+			return data[index].title
+		})
+		console.log("arr", arr)
+		axios.post(baseURL + 'delete', {
+			deleteList: arr
+		}).then(function (response) {
+			console.log('success delete');
+			setFlag(!flag)
+			// console.log('flag', flag)
+			setLoading(false);
+			setSelectedRowKeys([])
+		})
+		// setTimeout(() => {
+		// setLoading(false);
+		// }, 1000);
 	};
 	console.log('data222',data)
 	const onSelectChange = (newSelectedRowKeys) => {
@@ -77,8 +92,8 @@ const ArticlesListView = () => {
 		onChange: onSelectChange,
 	};
 	const hasSelected = selectedRowKeys.length > 0;
-	if(loading)
-		return <>loading... ...</>
+	// if(loading)
+	// 	return <>loading... ...</>
 	return (
 		<div>
 		<div

@@ -6,6 +6,7 @@ import Mock from 'mockjs';
 import { Card, Space, Col, Row, Skeleton } from 'antd';
 import { Divider, Breadcrumb, Layout, Menu, theme } from 'antd';
 import axios from "axios";
+import s from './html.css'
 
 
 // function seeArticle(id) {
@@ -41,7 +42,7 @@ marked.setOptions({
     renderer: new marked.Renderer(),
     // highlight: function (code) {
     //   return hljs.highlightAuto(code).value;
-    // },  
+    // },
     gfm: true, // 允许 Git Hub标准的markdown.
     pedantic: false, // 不纠正原始模型任何的不良行为和错误（默认为false）
     sanitize: false, // 对输出进行过滤（清理），将忽略任何已经输入的html代码（标签）
@@ -69,7 +70,11 @@ const ArticlePage = (props) => {
     // console.log('in', data)
     return (
         <>
-            <div className="show-html" dangerouslySetInnerHTML={{ __html: html }}></div>   
+            <Row>
+                <Col span={12} offset={6}>
+                    <div className={s} dangerouslySetInnerHTML={{ __html: html }}></div>
+                </Col>
+            </Row>
         </>
     )
 }

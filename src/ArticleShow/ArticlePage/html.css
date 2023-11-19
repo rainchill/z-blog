@@ -1,0 +1,122 @@
+img{
+    height: auto;
+    width:80%;
+    margin: auto;
+    display: block;
+}
+h2 {
+    padding-right:50px;
+	padding-left:50px;
+    font-size: 24px;
+}
+h3 {
+    padding-right:50px;
+	padding-left:50px;
+    font-size: 22px;
+}
+h4 {
+    padding-right:50px;
+	padding-left:50px;
+    font-size: 20px;
+}
+h5 {
+    padding-right:50px;
+	padding-left:50px;
+    font-size: 18px;
+}
+p
+{
+	padding-right:50px;
+	padding-left:50px;
+    font-size: 16px;
+}
+pre
+{
+	/* padding-right:50px;
+	padding-left:50px; */
+    margin: auto;
+    width: 100%;
+    border: 3px solid green;
+    padding: 10px;
+}
+/*
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+h5 {
+    font-size: 22px;
+}
+h4 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 26px;
+}
+h2 {
+    font-size: 28px;
+}
+h2:before {
+    content: '✒️';
+}
+h3:before {
+    content: '✏️';
+}
+h4:before {
+    content: '📌';
+}
+h5:before {
+    content: '🏷️';
+}
+p {
+    margin-bottom: 20px;
+}
+strong {
+}
+code {
+    font-family: 'dengxian';
+    padding: 3px 8px;
+    border-radius: 8px;
+    margin: 0 2px;
+}
+p img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+blockquote {
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+blockquote p {
+    margin: 0;
+}
+table {
+    margin: 20px auto;
+    border: 2px solid rgb(120, 120, 120);
+    border-spacing: 0;
+    text-align: center;
+}
+table th,
+table td {
+    padding: 6px 14px;
+    border: 1px solid rgb(120, 120, 120);
+}
+a {
+    font-weight: 700;
+    text-decoration: underline !important;
+    margin: 0 4px;
+}
+a:hover {
+    color: red;
+}
+hr {
+    margin: 20px 0;
+}
+*/

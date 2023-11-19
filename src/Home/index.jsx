@@ -79,7 +79,7 @@ const Home = (props) => {
                 <Route path="/archive" element={<Archive />} />
                 <Route path="/about" element={<About />} />
                 {/* <Route path="/admin" element={<Admin />} /> */}
-                <Route path="/articles/:id" element={<ArticlePage name="zyh" />} />
+                <Route path="/articles/:id" element={<ArticlePage />} />
                 
             </Routes>
             </div>
