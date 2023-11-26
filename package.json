@@ -10,6 +10,7 @@
     "ahooks": "^3.7.8",
     "antd": "^5.10.2",
     "axios": "^1.6.0",
+    "better-react-mathjax": "^2.0.3",
     "clipboard": "^2.0.11",
     "dompurify": "^3.0.6",
     "highlight.js": "^11.9.0",

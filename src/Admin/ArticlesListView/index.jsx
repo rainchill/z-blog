@@ -22,6 +22,10 @@ const columns = [
 	{
 		title: 'Date',
 		dataIndex: 'date',
+	},
+	{
+		title: 'Tags',
+		dataIndex: 'tags'
 	}
 ];
 // const data = [];
@@ -43,12 +47,12 @@ async function getAdminArticleslist() {
 			for (let i = 0; i < res.data.length; i++) {
 				data.push({
 					key: i,
-					title: res.data[i],
-					date: 32,
-					address: `London, Park Lane no. ${i}`,
+					title: res.data[i].ztitle,
+					date: res.data[i].zdate,
+					// address: `London, Park Lane no. ${i}`,
 				});
 			}
-			// console.log('in data', data)
+			console.log('in data', data)
             resolve(data)
         })
   });
@@ -82,7 +86,7 @@ const ArticlesListView = () => {
 		// setLoading(false);
 		// }, 1000);
 	};
-	console.log('data222',data)
+	// console.log('data222',data)
 	const onSelectChange = (newSelectedRowKeys) => {
 		console.log('selectedRowKeys changed: ', newSelectedRowKeys);
 		setSelectedRowKeys(newSelectedRowKeys);
@@ -112,7 +116,9 @@ const ArticlesListView = () => {
 			{hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
 			</span>
 		</div>
-		<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+			<Table rowSelection={rowSelection} columns={columns} dataSource={data}>
+			
+			</Table>
 		</div>
 	);
 };

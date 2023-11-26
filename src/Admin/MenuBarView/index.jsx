@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import {
 	AppstoreOutlined,
 	ContainerOutlined,
+	CopyOutlined,
 	DesktopOutlined,
 	MailOutlined,
 	MenuFoldOutlined,
@@ -48,13 +49,14 @@ function getItem(label, key, icon, children, type) {
 // 	]),
 // 	getItem('Group', 'grp', null, [getItem('Option 13', '13'), getItem('Option 14', '14')], 'group'),
 // ];
-
-const items= [UploadOutlined, UserOutlined].map(
-					(icon, index) => ({
+const items_name = ['upload files', 'show articles', 'upload images']
+const items= [UploadOutlined, UserOutlined, CopyOutlined].map(
+			(icon, index) => ({
 					key: String(index + 1),
 					icon: React.createElement(icon),
-					label: `nav ${index + 1}`,
-					}),
+		// label: `nav ${index + 1}`,
+					label: items_name[index]
+			}),
 )
 
 const onClick = (e, navigate) => {

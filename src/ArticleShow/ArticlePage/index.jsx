@@ -9,7 +9,7 @@ import axios from "axios";
 import s from './html.css'
 import hljs from 'highlight.js';
 import "highlight.js/styles/github.css";
-
+import {MathJaxContext, MathJax} from 'better-react-mathjax'
 
 const baseURL = "http://127.0.0.1:8000/articles";
 
@@ -73,14 +73,19 @@ const ArticlePage = (props) => {
             </>
         )
     }
-    const html = marked(data.content)
+    var finalData = data.content.replace(/(?<!\\)\$(.*)\$/g, '\\\\($1\\\\)')
+    const html = marked(finalData)
     const str = "hello world"
     // console.log('in', data)
     return (
         <>
             <Row>
                 <Col span={12} offset={6}>
-                    <div className={s} dangerouslySetInnerHTML={{ __html: html }}></div>
+                    <MathJaxContext>
+                        <MathJax>
+                            <div className={s} dangerouslySetInnerHTML={{ __html: html }}></div>
+                        </MathJax>
+                    </MathJaxContext>
                 </Col>
             </Row>
         </>

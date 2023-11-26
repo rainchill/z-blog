@@ -10,8 +10,11 @@ import {
 	SettingOutlined,
 	UploadOutlined
 } from '@ant-design/icons';
-import { Button, message, Upload, Avatar, List, Radio, Space, Row, Col, Table, Menu } from 'antd';
+import { Button, message, Upload, Avatar, List, Radio, Space, Row, Col, Table, Menu, Divider } from 'antd';
 import axios from "axios";
+import './index.css'
+import upload_show from '../../Public/upload_files_show.jpg'
+import {MathJaxContext, MathJax} from 'better-react-mathjax'
 
 
 const props = {
@@ -30,9 +33,19 @@ const props = {
 };
 
 const UploadView = () => (
-	<Upload {...props}>
-		<Button icon={<UploadOutlined />}>Click to Upload</Button>
-	</Upload>
+	<>
+		<Space align="center" direction="vertical" style={{ width: '100%' }}>
+
+			<h2>{"不知道放些什么 二次元镇楼！！！"}</h2>
+			<img src={upload_show} />
+			<h3>此处上传markdown文件</h3>
+			<Space align="center" direction="horizontal" style={{ width: '100%' }}>
+				<Upload {...props}>
+					<Button icon={<UploadOutlined />}>Click to Upload</Button>
+				</Upload>
+			</Space>
+		</Space>
+	</>
 );
 
 export default UploadView
